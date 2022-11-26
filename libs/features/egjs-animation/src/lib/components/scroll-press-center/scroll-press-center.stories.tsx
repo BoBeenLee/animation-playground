@@ -7,7 +7,14 @@ export default {
   argTypes: {},
 } as Meta;
 
-const Template: Story<ScrollPressCenterProps> = (args) => <ScrollPressCenter {...args} />;
+const items = Array(100).fill('').map((_, index) => {
+  return {
+    id: `${index}`, 
+    value: `item${index}`, 
+  }
+})
+
+const Template: Story<ScrollPressCenterProps> = (args) => <ScrollPressCenter {...args} items={items} />;
 
 export const Primary = Template.bind({});
 Primary.args = {};

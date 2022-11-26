@@ -1,0 +1,17 @@
+.wrap {
+  width: 500px;
+  overflow: hidden;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* overflow-x: scroll; */
+}
+
+.item {
+  background: #eee;
+  padding: 20px;
+  border-radius: 9999px;
+}
