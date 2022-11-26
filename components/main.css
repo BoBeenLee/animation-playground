@@ -1,3 +1,21 @@
+.scroll-press-center_wrap__kgRGV {
+  width: 500px;
+  overflow: hidden;
+}
+
+.scroll-press-center_inner__UVOfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* overflow-x: scroll; */
+}
+
+.scroll-press-center_item__8aTnK {
+  background: #eee;
+  padding: 20px;
+  border-radius: 9999px;
+}
+
 .scroll-press-center_wrap__Yj33A {
   width: 500px;
   overflow: hidden;
