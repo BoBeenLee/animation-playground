@@ -1,6 +1,6 @@
-import styles from './scroll-press-center.module.css';
 import { motion, useScroll } from 'framer-motion';
 import { useCallback, useRef, useState } from 'react';
+import styles from './scroll-press-center.module.css';
 
 interface Item {
   id: string;
@@ -26,8 +26,13 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
   const onSelected = useCallback((index: number) => {
     return () => {
       console.log(index);
-      setTarget(childrenRefs.current[index]);
-      targetRef.current = childrenRefs.current[index];
+      childrenRefs.current[index]?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center"
+      })
+      // setTarget(childrenRefs.current[index]);
+      // targetRef.current = childrenRefs.current[index];
     };
   }, []);
 
