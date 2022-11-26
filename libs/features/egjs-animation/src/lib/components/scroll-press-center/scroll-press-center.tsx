@@ -15,21 +15,24 @@ export interface ScrollPressCenterProps {
 export function ScrollPressCenter(props: ScrollPressCenterProps) {
   const { items } = props
   const flickingRef = useRef<Flicking>(null)
-  
-
 
   const onSelected = useCallback((index: number) => {
-    return () => {
+    let loading = false
+    return async () => {
+      if(loading) {
+        return
+      }
       console.log(index)
-      flickingRef.current?.moveTo(index, 100).catch((e) => {
-        // NOTHING
-      })
+      loading = true
+      await flickingRef.current?.moveTo(index).catch(() => void 0);
+      loading = false
     };
   }, []);
 
   return (
     <Flicking
       ref={flickingRef}
+      preventClickOnDrag={false}
       align="center"
     >
        {items.map((item, i) => (
