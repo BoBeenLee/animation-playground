@@ -23,6 +23,7 @@ export function uiComponentsPlop(plop) {
         message: 'Features Folder: ',
         choices: [
           { name: 'framer-motion-animation', value: 'framer-motion-animation' },
+          { name: 'egjs-animation', value: 'egjs-animation' },
         ],
         when(answers) {
           return answers.location === 'features';

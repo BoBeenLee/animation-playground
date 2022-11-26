@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "features-egjs-animation": "libs/features/egjs-animation",
     "features-framer-motion-animation": "libs/features/framer-motion-animation",
     "images": "libs/images",
     "nextjs-app": "apps/nextjs-app",

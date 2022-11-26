@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@nx-react-code-sharing/features/egjs-animation": [
+        "libs/features/egjs-animation/src/index.ts"
+      ],
       "@nx-react-code-sharing/features/framer-motion-animation": [
         "libs/features/framer-motion-animation/src/index.ts"
       ],
