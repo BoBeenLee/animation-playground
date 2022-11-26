@@ -19,7 +19,6 @@
         "libs/features/todo/src/index.ts"
       ],
       "@nx-react-code-sharing/images": ["libs/images/src/index.ts"],
-      "@nx-react-code-sharing/sdk": ["libs/sdk/src/index.ts"],
       "@nx-react-code-sharing/shared-apis": ["libs/shared/apis/src/index.ts"],
       "@nx-react-code-sharing/shared-hooks": ["libs/shared/hooks/src/index.ts"],
       "@nx-react-code-sharing/shared-libs": ["libs/shared/libs/src/index.ts"],
