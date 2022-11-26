@@ -78,7 +78,7 @@
     "@react-native-community/cli-platform-android": "9.0.0",
     "@react-native-community/cli-platform-ios": "9.1.0",
     "@storybook/addon-actions": "6.5.9",
-    "@storybook/addon-essentials": "6.5.9",
+    "@storybook/addon-essentials": "6.5.13",
     "@storybook/addon-knobs": "6.4.0",
     "@storybook/addon-links": "6.5.12",
     "@storybook/addon-viewport": "^6.5.10",
