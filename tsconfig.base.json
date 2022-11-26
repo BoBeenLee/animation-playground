@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-react-code-sharing/features-todo": [
-        "libs/features/todo/src/index.ts"
+      "@nx-react-code-sharing/features/framer-motion-animation": [
+        "libs/features/framer-motion-animation/src/index.ts"
       ],
       "@nx-react-code-sharing/images": ["libs/images/src/index.ts"],
       "@nx-react-code-sharing/shared-apis": ["libs/shared/apis/src/index.ts"],

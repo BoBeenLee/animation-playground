@@ -1,7 +1,7 @@
 {
-  "name": "features-todo",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/features/todo/src",
+  "name": "features-framer-motion-animation",
+  "sourceRoot": "libs/features/framer-motion-animation/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -9,7 +9,9 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/features/todo/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "libs/features/framer-motion-animation/**/*.{ts,tsx,js,jsx}"
+        ]
       },
       "configurations": {
         "fix": {
@@ -19,9 +21,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/features/todo"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/features/framer-motion-animation"
+      ],
       "options": {
-        "jestConfig": "libs/features/todo/jest.config.ts",
+        "jestConfig": "libs/features/framer-motion-animation/jest.config.ts",
         "passWithNoTests": true
       }
     }

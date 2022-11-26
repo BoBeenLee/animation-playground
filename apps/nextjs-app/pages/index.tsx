@@ -3,7 +3,7 @@ import { Bold, Image } from '@nx-react-code-sharing/shared-ui-components';
 import {
   todosByOrderDESCSelector,
   useTodoStore,
-} from '@nx-react-code-sharing/features-todo';
+} from '@nx-react-code-sharing/features/framer-motion-animation';
 import { useEffect } from 'react';
 import { env } from '../libs/env';
 import Layout from '../components/layout';
