@@ -17,7 +17,7 @@
 }
 
 .scroll-press-center_wrap__Yj33A {
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 .scroll-press-center_inner__W1u18 {
@@ -58,6 +58,22 @@ body {
 }
 
 .scroll-sample_item__KZk1a {
+  background: #eee;
+  padding: 20px;
+  border-radius: 9999px;
+}
+
+.scroll-press-center_wrap__ddFE9 {
+  overflow: hidden;
+}
+
+.scroll-press-center_inner__tr9ls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.scroll-press-center_item__ebP64 {
   background: #eee;
   padding: 20px;
   border-radius: 9999px;
