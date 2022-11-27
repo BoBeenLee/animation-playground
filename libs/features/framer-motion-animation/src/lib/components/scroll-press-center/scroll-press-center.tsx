@@ -1,18 +1,14 @@
 import { motion, useAnimation } from 'framer-motion';
+import React, { MouseEvent, ReactElement } from "react";
 import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './scroll-press-center.module.css';
 
-interface Item {
-  id: string;
-  value: string;
-}
-
 export interface ScrollPressCenterProps {
-  items: Item[];
+  children: ReactElement[];
 }
 
 export function ScrollPressCenter(props: ScrollPressCenterProps) {
-  const { items } = props;
+  const { children } = props;
 
   const isDragging = useRef(false);
 
@@ -21,16 +17,16 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
   const innerRef = useRef<HTMLDivElement | null>(null);
   const [innerWidth, setInnerWidth] = useState<number>(0);
 
-  const childrenRefs = useRef<(HTMLDivElement | null)[]>(Array(items.length));
+  const childrenRefs = useRef<(HTMLElement | null)[]>(Array(children.length));
 
   const controls = useAnimation()
 
   useEffect(() => {
     setInnerWidth(innerRef.current?.scrollWidth ?? 0);
-  }, [items]);
+  }, [children]);
 
   const onSelected = useCallback((index: number) => {
-    const onClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    const onClick = (e: MouseEvent) => {
       e.preventDefault();
       if (isDragging.current) {
         return;
@@ -94,18 +90,12 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
           }, 150);
         }}
       >
-        {items.map((item, i) => (
-          <div
-            ref={(el) => {
-              childrenRefs.current[i] = el;
-            }}
-            key={item.id}
-            className={styles['item']}
-            onClick={onSelected(i)}
-          >
-            {item.value}{' '}
-          </div>
-        ))}
+        {React.Children.map(children, (element, idx) => {
+          return React.cloneElement(element, { ref: (el: HTMLElement | null) =>(childrenRefs.current[idx] = el), onClick: (e: MouseEvent) => {
+            element.props.onClick?.(e);
+            onSelected(idx)(e);
+          } });
+        })}
       </motion.div>
     </div>
   );
