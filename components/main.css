@@ -17,15 +17,13 @@
 }
 
 .scroll-press-center_wrap__Yj33A {
-  width: 500px;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .scroll-press-center_inner__W1u18 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* overflow-x: scroll; */
 }
 
 .scroll-press-center_item__Gc9se {
