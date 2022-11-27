@@ -75,7 +75,7 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
   // FIXME https://github.com/framer/motion/issues/185
   // FIXME https://github.com/framer/motion/issues/314
   return (
-    <motion.div ref={ref} className={styles['wrap']}>
+    <div ref={ref} className={styles['wrap']}>
       <motion.div
         ref={innerRef}
         animate={controls}
@@ -95,7 +95,7 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
         }}
       >
         {items.map((item, i) => (
-          <motion.div
+          <div
             ref={(el) => {
               childrenRefs.current[i] = el;
             }}
@@ -104,10 +104,10 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
             onClick={onSelected(i)}
           >
             {item.value}{' '}
-          </motion.div>
+          </div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 }
 
