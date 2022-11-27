@@ -4,6 +4,7 @@
   "projects": {
     "features-egjs-animation": "libs/features/egjs-animation",
     "features-framer-motion-animation": "libs/features/framer-motion-animation",
+    "features-use-gesture-animation": "libs/features/use-gesture-animation",
     "images": "libs/images",
     "nextjs-app": "apps/nextjs-app",
     "nextjs-app-e2e": "apps/nextjs-app-e2e",

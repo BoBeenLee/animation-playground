@@ -24,6 +24,7 @@ export function uiComponentsPlop(plop) {
         choices: [
           { name: 'framer-motion-animation', value: 'framer-motion-animation' },
           { name: 'egjs-animation', value: 'egjs-animation' },
+          { name: 'use-gesture-animation', value: 'use-gesture-animation' },
         ],
         when(answers) {
           return answers.location === 'features';

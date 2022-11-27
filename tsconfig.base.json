@@ -21,6 +21,9 @@
       "@nx-react-code-sharing/features/framer-motion-animation": [
         "libs/features/framer-motion-animation/src/index.ts"
       ],
+      "@nx-react-code-sharing/features/use-gesture-animation": [
+        "libs/features/use-gesture-animation/src/index.ts"
+      ],
       "@nx-react-code-sharing/images": ["libs/images/src/index.ts"],
       "@nx-react-code-sharing/shared-apis": ["libs/shared/apis/src/index.ts"],
       "@nx-react-code-sharing/shared-hooks": ["libs/shared/hooks/src/index.ts"],

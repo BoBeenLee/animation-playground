@@ -38,6 +38,11 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
     };
   }, []);
 
+  /*
+  - https://codesandbox.io/s/framer-motion-2-scrollable-drag-constraints-lsonq?file=/src/styles.css:117-282
+  - https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+  */
+
   // FIXME https://github.com/framer/motion/issues/185
   // FIXME https://github.com/framer/motion/issues/314
   return (
