@@ -24,27 +24,39 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
   const childrenRefs = useRef<(HTMLDivElement | null)[]>(Array(items.length));
 
   const controls = useAnimation()
-  
+
   useEffect(() => {
     setInnerWidth(innerRef.current?.scrollWidth ?? 0);
   }, [items]);
 
-  // scroll width, element width,
   const onSelected = useCallback((index: number) => {
     const onClick: React.MouseEventHandler<HTMLDivElement> = (e) => {
       e.preventDefault();
-      if(isDragging.current) {
+      if (isDragging.current) {
         return;
       }
-      const offsetItemLeft = (childrenRefs.current[index]?.offsetLeft ?? 0)
-      const offsetCenter = ((ref.current?.clientWidth ?? 0) - (childrenRefs.current[index]?.clientWidth ?? 0)) / 2;
-      const x = -offsetItemLeft + offsetCenter;
-      const leftBound = offsetItemLeft - offsetCenter < 0;
-      const rightBound = offsetItemLeft + offsetCenter > ((innerRef.current?.scrollWidth ?? 0));
+      const wrapWidth = (ref.current?.clientWidth ?? 0);
+      const innerScrollWidth = (innerRef.current?.scrollWidth ?? 0);
+      const itemOffsetLeft = (childrenRefs.current[index]?.offsetLeft ?? 0)
+      const offsetCenter = (wrapWidth - (childrenRefs.current[index]?.clientWidth ?? 0)) / 2;
+      const x = -itemOffsetLeft + offsetCenter;
+      const leftBound = itemOffsetLeft - offsetCenter < 0;
+      const rightBound = itemOffsetLeft + offsetCenter > innerScrollWidth;
 
-      console.log(x, offsetCenter, childrenRefs.current[index]?.offsetLeft, innerRef.current?.scrollWidth)
+      console.log(x, offsetCenter, itemOffsetLeft, innerRef.current?.scrollWidth)
       console.log(leftBound, rightBound)
-      if(leftBound || rightBound) {
+      if (leftBound) {
+        controls.start({
+          x: 0,
+          transition: { duration: 1 }
+        });
+        return;
+      }
+      if (rightBound) {
+        controls.start({
+          x: -(innerScrollWidth - wrapWidth),
+          transition: { duration: 1 }
+        });
         return;
       }
       controls.start({
@@ -63,41 +75,39 @@ export function ScrollPressCenter(props: ScrollPressCenterProps) {
   // FIXME https://github.com/framer/motion/issues/185
   // FIXME https://github.com/framer/motion/issues/314
   return (
-    <div>
-      <motion.div ref={ref} className={styles['wrap']}>
-        <motion.div
-          ref={innerRef}
-          animate={controls}
-          style={{
-            width: innerWidth,
-          }}
-          className={styles['inner']}
-          drag={innerWidth > 0 ? 'x' : false}
-          dragConstraints={ref}
-          onDragStart={() => {
-            isDragging.current = true;
-          }}
-          onDragEnd={() => {
-            setTimeout(() => {
-              isDragging.current = false;
-            }, 150);
-          }}
-        >
-          {items.map((item, i) => (
-            <motion.div
-              ref={(el) => {
-                childrenRefs.current[i] = el;
-              }}
-              key={item.id}
-              className={styles['item']}
-              onClick={onSelected(i)}
-            >
-              {item.value}{' '}
-            </motion.div>
-          ))}
-        </motion.div>
+    <motion.div ref={ref} className={styles['wrap']}>
+      <motion.div
+        ref={innerRef}
+        animate={controls}
+        style={{
+          width: innerWidth,
+        }}
+        className={styles['inner']}
+        drag={innerWidth > 0 ? 'x' : false}
+        dragConstraints={ref}
+        onDragStart={() => {
+          isDragging.current = true;
+        }}
+        onDragEnd={() => {
+          setTimeout(() => {
+            isDragging.current = false;
+          }, 150);
+        }}
+      >
+        {items.map((item, i) => (
+          <motion.div
+            ref={(el) => {
+              childrenRefs.current[i] = el;
+            }}
+            key={item.id}
+            className={styles['item']}
+            onClick={onSelected(i)}
+          >
+            {item.value}{' '}
+          </motion.div>
+        ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 }
 
