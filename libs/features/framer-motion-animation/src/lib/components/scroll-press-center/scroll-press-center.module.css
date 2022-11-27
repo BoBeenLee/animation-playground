@@ -1,13 +1,11 @@
 .wrap {
-  width: 500px;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .inner {
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* overflow-x: scroll; */
 }
 
 .item {
